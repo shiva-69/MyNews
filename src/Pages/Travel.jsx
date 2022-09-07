@@ -7,7 +7,7 @@ export const Travel = () => {
     const [data, setData] = React.useState(false);
 
     React.useEffect(() => {
-        fetch("https://newsapi.org/v2/everything?q=travel&apiKey=c3847362a492436b8db79658d4060e03")
+        fetch(`https://newsapi.org/v2/everything?q=travel&apiKey=${process.env.REACT_APP_API_KEY}`)
             .then((res) => res.json())
             .then((res) => (setData(res.articles)))
             .catch((err) => {

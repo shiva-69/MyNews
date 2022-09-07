@@ -7,7 +7,7 @@ export const NewsDetails = () => {
 
     const [headline, setHeadline] = React.useState([]);
         React.useEffect(()=> {
-            fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=c3847362a492436b8db79658d4060e03&pagesize=4")
+            fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${process.env.REACT_APP_API_KEY}&pagesize=4`)
             .then(res => res.json())
             .then((res) => (setHeadline(res.articles)))
         }, [])

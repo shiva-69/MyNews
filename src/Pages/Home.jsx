@@ -8,7 +8,7 @@ export const Home = () => {
     const [data, setData] = React.useState(false);
 
     React.useEffect(() => {
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=c3847362a492436b8db79658d4060e03")
+        fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_API_KEY}`)
             .then((res) => res.json())
             .then((res) => setData(res.articles))
             .catch((err) => {
