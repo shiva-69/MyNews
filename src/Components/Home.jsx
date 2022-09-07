@@ -1,4 +1,4 @@
-import { Heading, Spinner, Box, Badge, Image, Grid  } from "@chakra-ui/react";
+import { Heading, Spinner, Box, Badge, Image, Grid, Flex } from "@chakra-ui/react";
 import React from "react";
 export const Home = () => {
     const [loading, setLoading] = React.useState(true);
@@ -19,11 +19,11 @@ export const Home = () => {
     return (
         <>
             {
-                loading ? <Spinner /> : error ? <Heading>Error</Heading> : <Grid templateColumns='repeat(3, 1fr)' gap={6} ml="6%" >
+                loading ? <Flex align="center" justify="center" mt="200px"><Spinner size='xl'/></Flex> : error ? <Heading>Error</Heading> : <Grid templateColumns='repeat(3, 1fr)' gap={6} ml="6%" >
                     { data.map((item) => (
-                    <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+                    <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' cursor="pointer" boxShadow='xl' p='6' rounded='md' bg='white'>
                         <Image src={item.urlToImage} objectFit='cover'  height ="250px" width="100%" fallbackSrc='https://via.placeholder.com/200?text=Error+in+Loading+Image'/>
-
+                        
                         <Box p='6'>
                             <Box display='flex' alignItems='baseline'>
                                 <Badge borderRadius='full' px='2' colorScheme='teal'>
