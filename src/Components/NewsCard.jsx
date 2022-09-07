@@ -1,9 +1,11 @@
 import { Box, Badge, Image, Flex, Link, Tag, Spacer } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { news } from "../Redux/News/Actions";
+import { useNavigate } from "react-router-dom";
 
 export const NewsCard = ({item}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleDate = (str) => {
         let ans = ""
         for(let i = 0; i < str.length; i++){
@@ -28,6 +30,7 @@ export const NewsCard = ({item}) => {
     }
     const handleClick = (item) => {
         dispatch(news(item))
+        navigate("/detail")
     }
     return <>
          <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' cursor="pointer" boxShadow='xl' p='6' rounded='md' bg='white' mt="15%" pb="4" onClick={() => handleClick(item)}>
