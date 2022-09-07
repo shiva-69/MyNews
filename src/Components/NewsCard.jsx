@@ -1,6 +1,9 @@
 import { Box, Badge, Image, Flex, Link, Tag, Spacer } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { news } from "../Redux/News/Actions";
 
 export const NewsCard = ({item}) => {
+    const dispatch = useDispatch();
     const handleDate = (str) => {
         let ans = ""
         for(let i = 0; i < str.length; i++){
@@ -23,8 +26,11 @@ export const NewsCard = ({item}) => {
         }
         return date
     }
+    const handleClick = (item) => {
+        dispatch(news(item))
+    }
     return <>
-         <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' cursor="pointer" boxShadow='xl' p='6' rounded='md' bg='white' mt="15%" pb="4">
+         <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' cursor="pointer" boxShadow='xl' p='6' rounded='md' bg='white' mt="15%" pb="4" onClick={() => handleClick(item)}>
                             <Image 
                                 src={item.urlToImage} 
                                 objectFit='cover'
