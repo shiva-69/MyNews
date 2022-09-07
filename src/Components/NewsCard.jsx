@@ -1,4 +1,4 @@
-import { Box, Badge, Image, Flex, Link, Tag,Spacer } from "@chakra-ui/react";
+import { Box, Badge, Image, Flex, Link, Tag, Spacer } from "@chakra-ui/react";
 
 export const NewsCard = ({item}) => {
     const handleDate = (str) => {

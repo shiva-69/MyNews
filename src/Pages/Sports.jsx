@@ -1,4 +1,4 @@
-import { Heading, Spinner, Box, Badge, Image, Grid, Flex, Link, Tag,Spacer } from "@chakra-ui/react";
+import { Heading, Spinner, Grid, Flex } from "@chakra-ui/react";
 import React from "react";
 import {NewsCard} from "../Components/NewsCard"
 export const Sports = () => {
