@@ -1,30 +1,15 @@
 import { Flex, Heading, Link, Box, LinkOverlay, Image, LinkBox, Text  } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom";
 export const NewsDetails = () => {
-    const {news} = useSelector(state => state)
-    console.log(news);
+    const {news} = useSelector(state => state);
 
     const [headline, setHeadline] = React.useState([]);
-    // const news = {
-    //     source: {
-    //     id: "engadget",
-    //     name: "Engadget"
-    //     },
-    //     author: "Kris Holt",
-    //     title: "Anyone can now cross-post Reels from Instagram to Facebook",
-    //     description: "Despite some missteps with Instagram\r\n, Meta is marching forward with its plan to make Reels a bigger component of its apps\r\n in an attempt to better compete with TikTok\r\n. It's rolling out several updates to Reels, particularly on Facebook's side. For one th…",
-    //     url: "https://www.engadget.com/facebook-reels-instagram-crossposting-add-yours-tiktok-184410879.html",
-    //     urlToImage: "https://s.yimg.com/os/creatr-uploaded-images/2022-08/e60d2d00-1d91-11ed-8fd9-0af22f9631e5",
-    //     publishedAt: "2022-08-16T18:44:10Z",
-    //     content: "Despite some missteps with Instagram\r\n, Meta is marching forward with its plan to make Reels a bigger component of its apps\r\n in an attempt to better compete with TikTok\r\n. It's rolling out several u… [+1879 chars]"
-    //     }
-
         React.useEffect(()=> {
             fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=c3847362a492436b8db79658d4060e03&pagesize=4")
             .then(res => res.json())
-            .then((res) => (setHeadline(res.articles), console.log("inside: " ,headline)
-            ))
+            .then((res) => (setHeadline(res.articles)))
         }, [])
         const handleDate = (str) => {
             let ans = ""
@@ -48,7 +33,7 @@ export const NewsDetails = () => {
             }
             return date
         }
-
+        
     return <Flex direction="row" gap={20} ml="6%">
         <Flex direction="column" basis="60%">
             <Heading fontSize="40px" align="left" mb="2%">{news.title}</Heading>
